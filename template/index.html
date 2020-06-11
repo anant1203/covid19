@@ -1,0 +1,294 @@
+<!-- #######  THIS IS A COMMENT - Visible only in the source editor #########-->
+<h2> API Presentation!</h2>
+<head>
+<script>
+
+    function sendJSON(){ 
+
+                let result = document.querySelector('.result'); 
+                let state = document.querySelector('#state'); 
+
+                // Creating a XHR object 
+                let xhr = new XMLHttpRequest(); 
+                let url = "/api/covid/states_wise_county/"; 
+
+                // open a connection 
+                xhr.open("POST", url, true); 
+
+                // Set the request header i.e. which type of content you are sending 
+                xhr.setRequestHeader("Content-Type", "application/json"); 
+
+                // Create a state change callback 
+                xhr.onreadystatechange = function () { 
+                    if (xhr.readyState === 4 && xhr.status === 200) { 
+
+                        // Print received data from server 
+                        result.innerHTML = this.responseText; 
+
+                    } 
+                }; 
+
+                // Converting JSON data to string 
+                var data = JSON.stringify({ "state_name": state.value }); 
+
+                // Sending data with the request 
+                xhr.send(data); 
+            } 
+    
+    function sendJSON_county(){ 
+
+                let result = document.querySelector('.result1'); 
+                let state = document.querySelector('#state'); 
+
+                // Creating a XHR object 
+                let xhr = new XMLHttpRequest(); 
+                let url = "/api/covid/county_confirmed_proable/"; 
+
+                // open a connection 
+                xhr.open("POST", url, true); 
+
+                // Set the request header i.e. which type of content you are sending 
+                xhr.setRequestHeader("Content-Type", "application/json"); 
+
+                // Create a state change callback 
+                xhr.onreadystatechange = function () { 
+                    if (xhr.readyState === 4 && xhr.status === 200) { 
+
+                        // Print received data from server 
+                        result.innerHTML = this.responseText; 
+
+                    } 
+                }; 
+
+                // Converting JSON data to string 
+                var data = JSON.stringify({ "state_name": state.value }); 
+
+                // Sending data with the request 
+                xhr.send(data); 
+            } 
+    
+        function sendJSON_lookup(){ 
+
+                let result = document.querySelector('.result2'); 
+                let state = document.querySelector('#state_id'); 
+                let city = document.querySelector('#city'); 
+
+                // Creating a XHR object 
+                let xhr = new XMLHttpRequest(); 
+                let url = "/api/covid/lookup/"; 
+
+                // open a connection 
+                xhr.open("POST", url, true); 
+
+                // Set the request header i.e. which type of content you are sending 
+                xhr.setRequestHeader("Content-Type", "application/json"); 
+
+                // Create a state change callback 
+                xhr.onreadystatechange = function () { 
+                    if (xhr.readyState === 4 && xhr.status === 200) { 
+
+                        // Print received data from server 
+                        result.innerHTML = this.responseText; 
+
+                    } 
+                }; send
+
+                // Converting JSON data to string 
+                var data = JSON.stringify({ "stat_id": state_id.value, "city": city.value }); 
+
+                // Sending data with the request 
+                xhr.send(data); 
+            } 
+
+        
+        function sendJSON_new_facilties(){ 
+
+                let result = document.querySelector('.result3'); 
+            
+                let critical_care_capacity = document.querySelector('#critical_care_capacity'); 
+                let critical_care_occupancy = document.querySelector('#critical_care_occupancy'); 
+                let critical_care_surge_capacity = document.querySelector('#critical_care_surge_capacity'); 
+            
+                let intermediate_care_capacity = document.querySelector('#intermediate_care_capacity');
+                let intermediate_care_occupancy = document.querySelector('#intermediate_care_occupancy'); 
+                let intermediate_care_surge_capacity = document.querySelector('#intermediate_care_surge_capacity');
+            
+                let acute_care_capacity = document.querySelector('#acute_care_capacity'); 
+                let acute_care_occupancy = document.querySelector('#acute_care_occupancy');
+                let acute_care_surge_capacity = document.querySelector('#acute_care_surge_capacity'); 
+            
+                let inpaitent_subtotal_capacity = document.querySelector('#inpaitent_subtotal_capacity');
+                let inpaitent_subtotal_occupancy = document.querySelector('#inpaitent_subtotal_occupancy'); 
+                let inpaitent_subtotal_surge_capacity = document.querySelector('#inpaitent_subtotal_surge_capacity');
+            
+                let observation_capacity = document.querySelector('#observation_capacity'); 
+                let observation_occupancy = document.querySelector('#observation_occupancy');
+                let observation_surge_capacity = document.querySelector('#observation_surge_capacity'); 
+            
+                let result_waiting_capacity = document.querySelector('#result_waiting_capacity');
+                let result_waiting_occupancy = document.querySelector('#result_waiting_occupancy'); 
+                let result_waiting_surge_capacity = document.querySelector('#result_waiting_surge_capacity');
+            
+                let discharge_capacity = document.querySelector('#discharge_capacity'); 
+                let discharge_occupancy = document.querySelector('#discharge_occupancy');
+                let discharge_surge_capacity = document.querySelector('#discharge_surge_capacity');
+            
+                let non_in_patient_subtotal = document.querySelector('#non_in_patient_subtotal');
+                let totals = document.querySelector('#totals'); 
+
+
+                // Creating a XHR object 
+                let xhr = new XMLHttpRequest(); 
+                let url = "/api/covid/new_facilites/"; 
+
+                // open a connection 
+                xhr.open("POST", url, true); 
+
+                // Set the request header i.e. which type of content you are sending 
+                xhr.setRequestHeader("Content-Type", "application/json"); 
+
+                // Create a state change callback 
+                xhr.onreadystatechange = function () { 
+                    if (xhr.readyState === 4 && xhr.status === 200) { 
+
+                        // Print received data from server 
+                        result.innerHTML = this.responseText; 
+
+                    } 
+                }; 
+
+                // Converting JSON data to string 
+                var data = JSON.stringify({ 'id':'110079', 'critical_care_capacity':critical_care_capacity.value, 'critical_care_occupancy':critical_care_occupancy.value, 
+                                   'critical_care_surge_capacity':critical_care_surge_capacity.value, 'intermediate_care_capacity':intermediate_care_capacity.value,
+                                   'intermediate_care_occupancy':intermediate_care_occupancy.value, 'intermediate_care_surge_capacity':intermediate_care_surge_capacity.value, 
+                                   'acute_care_capacity':acute_care_capacity.value, 'acute_care_occupancy':acute_care_occupancy.value, 
+                                   'acute_care_surge_capacity':acute_care_surge_capacity.value, 'inpaitent_subtotal_capacity':inpaitent_subtotal_capacity.value, 
+                                   'inpaitent_subtotal_occupancy':inpaitent_subtotal_occupancy.value,'inpaitent_subtotal_surge_capacity':inpaitent_subtotal_surge_capacity.value, 
+                                   'observation_capacity':observation_capacity.value, 'observation_occupancy':observation_occupancy.value, 
+                                   'observation_surge_capacity':observation_surge_capacity.value, 'result_waiting_capacity':result_waiting_capacity.value, 
+                                   'result_waiting_occupancy':result_waiting_occupancy.value, 'result_waiting_surge_capacity':result_waiting_surge_capacity.value, 
+                                   'discharge_capacity':discharge_capacity.value, 'discharge_occupancy':discharge_occupancy.value, 
+                                   'discharge_surge_capacity':discharge_surge_capacity.value, 'non_in_patient_subtotal':non_in_patient_subtotal.value, 
+                                   'totals':totals.value }); 
+
+
+                // Sending data with the request 
+                xhr.send(data); 
+            } 
+
+
+</script>
+
+</head>
+
+<body>
+
+    <ul>
+        <li> <a href = "/api/covid/state_all" > State Details  </a> </li>
+        
+        <li> <a href = "/api/covid/county_all" > County Details </a> </li>
+        
+        <li> <a href = "/api/covid/us_all" > US Details </a> </li>
+        
+        <li>    
+        <h4> States wise county details </h4>
+        <p> 
+            <!-- Making a text input -->
+            <input type="text" id="state" placeholder="Your name">  
+
+            <!-- Button to send data -->
+            <button onclick="sendJSON()">Send JSON</button> 
+
+          <!-- For printing result from server -->
+          <p class="result" style="color:green"></p> 
+
+        </p>
+        </li>
+
+        <li>
+        <h4> Confirmed and Probable: Cases / Deaths </h4>
+            <p> 
+            <!-- Making a text input -->
+            <input type="text" id="state" placeholder="Your name">  
+
+            <!-- Button to send data -->
+            <button onclick="sendJSON_county()">Send JSON</button> 
+
+          <!-- For printing result from server -->
+          <p class="result1" style="color:green"></p> 
+
+            </p>
+
+        </li>
+
+        <li>
+        <h4> Lookup on city and state facilities </h4>
+            <p> 
+            <!-- Making a text input -->
+            <input type="text" id="state_id" placeholder="state id">  
+            <input type="text" id="city" placeholder="city name"> 
+
+            <!-- Button to send data -->
+            <button onclick="sendJSON_lookup()">Send JSON</button> 
+
+          <!-- For printing result from server -->
+          <p class="result2" style="color:green"></p> 
+
+            </p>
+
+        </li>
+
+        <li>
+        <h4> inserting new facilities in a city/state </h4> 
+           <p> 
+            <!-- Making a text input -->
+            
+            <input type="text" id="critical_care_capacity" placeholder="critical_care_capacity">  
+            <input type="text" id="critical_care_occupancy" placeholder="critical_care_occupancy"> 
+            <input type="text" id="critical_care_surge_capacity" placeholder="critical_care_surge_capacity">  
+            
+            <input type="text" id="intermediate_care_capacity" placeholder="intermediate_care_capacity">
+            <input type="text" id="intermediate_care_occupancy" placeholder="intermediate_care_occupancy">  
+            <input type="text" id="intermediate_care_surge_capacity" placeholder="intermediate_care_surge_capacity">
+            
+            <input type="text" id="acute_care_capacity" placeholder="acute_care_capacity">  
+            <input type="text" id="acute_care_occupancy" placeholder="acute_care_occupancy">
+            <input type="text" id="acute_care_surge_capacity" placeholder="acute_care_surge_capacity">  
+           
+            <input type="text" id="inpaitent_subtotal_capacity" placeholder="inpaitent_subtotal_capacity">
+            <input type="text" id="inpaitent_subtotal_occupancy" placeholder="inpaitent_subtotal_occupancy">  
+            <input type="text" id="inpaitent_subtotal_surge_capacity" placeholder="inpaitent_subtotal_surge_capacity">
+            
+            <input type="text" id="observation_capacity" placeholder="observation_capacity">  
+            <input type="text" id="observation_occupancy" placeholder="observation_occupancy">
+            <input type="text" id="observation_surge_capacity" placeholder="observation_surge_capacity">  
+            
+            <input type="text" id="result_waiting_capacity" placeholder="result_waiting_capacity">
+            <input type="text" id="result_waiting_occupancy" placeholder="result_waiting_occupancy">  
+            <input type="text" id="result_waiting_surge_capacity" placeholder="result_waiting_surge_capacity">
+            
+            <input type="text" id="discharge_capacity" placeholder="discharge_capacity">  
+            <input type="text" id="discharge_occupancy" placeholder="discharge_occupancy">
+            <input type="text" id="discharge_surge_capacity" placeholder="discharge_surge_capacity">  
+           
+            <input type="text" id="non_in_patient_subtotal" placeholder="non_in_patient_subtotal"> 
+            <input type="text" id="totals" placeholder="totals">
+            
+
+            <!-- Button to send data -->
+            <button onclick="sendJSON_new_facilties()">Send JSON</button> 
+
+            <!-- For printing result from server -->
+            <p class="result3" style="color:green"></p> 
+            
+        
+        
+        </li>
+        
+        
+    
+    </ul>
+    
+</body>         
+</html>
+
